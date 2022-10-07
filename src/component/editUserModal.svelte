@@ -3,7 +3,6 @@
     import {APP_API_URL, APP_TOKEN} from "../routes/stores/authCrud";
     import axios from "axios";
     import Swal from 'sweetalert2';
-    import { goto } from '$app/navigation';
     console.log($currentUserData)
 
     let status;
@@ -107,3 +106,16 @@
 {:else}
     <p>Loading...</p>
 {/if}
+
+<style>
+    form div{
+        display: flex;
+        flex-direction: column;
+        padding: 0 150px;
+        margin-bottom: 10px;
+    }
+
+    input, select{
+        height: 20px;
+    }
+</style>

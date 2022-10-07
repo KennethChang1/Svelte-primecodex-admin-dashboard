@@ -9,7 +9,6 @@
     const heading = ["ID", "Username", "Source Account", "Destination Account", "Amount", "Status", "Created At", "Action"]
 </script>
 
-<Heading pageName="Internal Transfers"></Heading>
 <div class="container">
     <Table heading={heading} type="internal-transfer"></Table>
 </div>

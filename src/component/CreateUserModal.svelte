@@ -1,15 +1,17 @@
 <script>
-    import Swal from 'sweetalert2'
+    import {token} from "../routes/stores/store";
     import {APP_API_URL, APP_TOKEN} from '../routes/stores/authCrud';
-    import {token, modal} from "../routes/stores/store";
+    import Swal from 'sweetalert2';
     import axios from 'axios';
+
     let name;
     let email;
     let phone;
     let password;
+    let cpassword;
     let role;
     let status;
-    
+
     const handleSubmit = () => {
         axios({
 			method: 'POST',
@@ -29,7 +31,7 @@
 		})
 			.then(({ data }) => {
 				Swal.fire({
-					text: 'Success create admin',
+					text: 'Success create user',
 					confirmButtonText: 'Ok',
 				}).then(result => {
 					if (result.isConfirmed) {
@@ -43,34 +45,37 @@
 			})
     }
 </script>
-  
-<form on:submit|preventDefault={handleSubmit}>
+
+<form on:submit|preventDefault={handleSubmit} class="form">
+    <p class="form-heading">Create User</p>
     <div>
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" bind:value={name}>
+        <label for="username">User Name</label>
+        <input type="text" id="username" name="username" bind:value={name} required>
     </div>
     <div>
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" bind:value={email}>
+        <input type="text" id="email" name="email" bind:value={email} required>
     </div>
     <div>
         <label for="phone">Phone</label>
-        <input type="number" id="phone" name="phone" bind:value={phone}>
+        <input type="number" id="phone" name="phone" bind:value={phone} required>
     </div>
     <div>
-        <label for="pwd">Password</label>
-        <input type="password" id="pwd" name="pwd" bind:value={password}>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" bind:value={password} required>
+    </div>
+    <div>
+        <label for="cpassword">Confirm Password</label>
+        <input type="password" id="cpassword" name="cpassword" bind:value={cpassword}>
     </div>
     <div>
         <label for="role">Role</label>
         <select id="role" name="role" bind:value={role}>
             <option value="">Please Select</option>
-            <option value="SUPER_ADMIN">SUPER_ADMIN</option>
-            <option value="SUPER_DEVELOPER">SUPER_DEVELOPER</option>
-            <option value="STAFF_CS">STAFF_CS</option>
-            <option value="STAFF_SETTLEMENT">STAFF_SETTLEMENT</option>
-            <option value="STAFF_DEALER">STAFF_DEALER</option>
-          </select>
+            <option value="USER_PARTNER">USER_PARTNER</option>
+            <option value="USER_SUB_PARTNER">USER_SUB_PARTNER</option>
+            <option value="USER_TRADER">USER_TRADER</option>
+        </select>
     </div>
     <div class="status">
         <label for="status">Status</label>
@@ -78,12 +83,20 @@
             <option value="">Please Select</option>
             <option value="PENDING">PENDING</option>
             <option value="ACTIVE">ACTIVE</option>
+            <option value="ONPROGRESS">ONPROGRESS</option>
+            <option value="DISABLED">DISABLED</option>
         </select>
     </div>
     <button class="btn">Create</button>
 </form>
 
 <style>
+    .form-heading{
+        font-weight: 500;
+        font-size: 19px;
+        border-bottom: 1px solid #ebedf3;
+    }
+
     form > div{
         display: flex;
         flex-direction: column;

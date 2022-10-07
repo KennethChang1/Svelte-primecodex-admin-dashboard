@@ -35,6 +35,7 @@ td{
 .container{
     margin: 20px;
     background-color: white;
+    padding-top: 2px;
 }
 
 .container > *{
@@ -44,4 +45,15 @@ td{
 .heading{
     border-bottom: 1px solid #ebedf3;
     font-size: 19px;
+}
+
+.admin-btn{
+    cursor: pointer;
+    display: block;
+    margin: 20px;
+    padding: 10px;
+    background-color: #3699ff;
+    border: none;
+    border-radius: 5px;
+    color: white;
 }

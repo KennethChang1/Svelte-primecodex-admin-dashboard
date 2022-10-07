@@ -37,7 +37,7 @@ export const getAllAdmin = async (token) => {
 	}).then((res) => res.data);
 };
 
-export function getAllVerification(token) {
+export const getAllVerification = async (token) => {
 	// Authorization head should be fulfilled in interceptor.
 	if (!token) return {};
 	return axios({
@@ -48,7 +48,7 @@ export function getAllVerification(token) {
 			'x-user-token': token
 		}
 	}).then((res) => res.data);
-}
+};
 
 export const getStatisticData = async (token) => {
 	if (!token) return {};

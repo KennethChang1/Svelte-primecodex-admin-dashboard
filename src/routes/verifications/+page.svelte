@@ -1,13 +1,16 @@
 <script>
-    import Heading from "../../component/Heading.svelte";
     import Table from "../../component/Table.svelte";
-    import {allVerification} from "../stores/store.js";
-    import { page } from '$app/stores';
+    import { allVerification } from "../stores/store";
+    export let data;
+
+    if(data.user){
+        console.log(data.user)
+        allVerification.set(data.user);
+    }
 
     const heading = ["Username", "ID/Account Number", "Type", "Status", "Created At", "Action"]
 </script>
 
-<Heading pageName="Verifications Data"></Heading>
 <div class="container">
     <Table heading={heading} type="verification"></Table>
 </div>

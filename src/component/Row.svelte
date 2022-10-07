@@ -1,6 +1,5 @@
 <script>
     import { page } from '$app/stores';
-    import { goto } from '$app/navigation';
     import { writable } from 'svelte/store';
     export let row;
     import Swal from 'sweetalert2';
@@ -40,7 +39,7 @@
             },
           })
             .then(data => {
-              goto('/dashboard')
+              window.location.reload();
             })
             .catch(err => {
               console.log(err)
@@ -58,7 +57,7 @@
       <td>{row.email}</td>
       <td>{row.created_at}</td>
       <td>
-        <button><img src="/search.svg" alt=""></button>
+        <a href={`/users/${row.id}`}><button><img src="/search.svg" alt=""></button></a>
         <Modal show={$modal}>
           <button on:click={() => showModal(row)}><img src="/pencil.0851d32a.svg" alt=""></button>
         </Modal>

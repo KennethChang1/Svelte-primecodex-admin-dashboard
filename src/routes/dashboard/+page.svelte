@@ -1,41 +1,14 @@
 <script>
     import Heading from '../../component/Heading.svelte';
-    import {token, allUser, allAdmin, allVerification, paymetData, accountDataSpec, internalTransfer} from "../stores/store.js";
     import '../../style.css';
     import MonthlyStats from "./component/MonthlyStats.svelte";
-    import { getAllUser, getAllAdmin, getAllVerification, getAllPayment, getAllAccountSpec, getInternalTransfers } from '../stores/authCrud.js';   
     import Table from '../../component/Table.svelte';
     export let data;
-
-    // getAllAdmin($token)?.then(({ data }) => {
-	// 	allAdmin.set(data);
-	// });
-
-    // getAllVerification($token)?.then(({ data }) => {
-	// 	allVerification.set(data);
-	// });
-
-    // getAllPayment($token)?.then(({ data }) => {
-	// 	paymetData.set(data);
-	// });
-
-    // getAllPayment($token)?.then(({ data }) => {
-	// 	paymetData.set(data);
-	// });
-
-    // getAllAccountSpec($token)?.then(({ data }) => {
-	// 	accountDataSpec.set(data.accountSpecs);
-	// });
-
-    // getInternalTransfers($token)?.then(({ data }) => {
-	// 	internalTransfer.set(data);
-	// });
 
     const heading = ["Name", "Email", "Created At", "Action"];
     const heading2 = ["Login ID", "Spec", "Username", "Type"];
 </script>
 
-<Heading pageName="Dashboard"></Heading>
 <div class="container">
     <p class="heading">Dashboard Tools</p>
     <div>
